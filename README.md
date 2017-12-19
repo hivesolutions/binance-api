@@ -1,2 +1,3 @@
-# binance_api
-Simple Python API client for Binance
+# Binance API
+
+Simple Python API client for [Binance](https://www.binance.com).
