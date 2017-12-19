@@ -72,6 +72,19 @@ class BinanceApp(appier.WebApp):
         result = api.time()
         return result
 
+    @appier.route("/me", "GET")
+    def me(self):
+        api = self.get_api()
+        account = api.self_account()
+        return account
+
+    @appier.route("/orders", "GET")
+    def orders(self):
+        symbol = self.field("symbol", "LTCBTC")
+        api = self.get_api()
+        orders = api.all_orders(symbol = symbol)
+        return orders
+
     @appier.route("/orders/open", "GET")
     def open_orders(self):
         api = self.get_api()

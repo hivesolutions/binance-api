@@ -45,6 +45,7 @@ import appier
 
 from . import order
 from . import ticker
+from . import account
 
 BASE_URL = "https://api.binance.com/api/v1/"
 """ The default base URL to be used when no other
@@ -57,7 +58,8 @@ base URL value is provided to the constructor """
 class API(
     appier.API,
     order.OrderAPI,
-    ticker.TickerAPI
+    ticker.TickerAPI,
+    account.AccountAPI
 ):
 
     def __init__(self, *args, **kwargs):

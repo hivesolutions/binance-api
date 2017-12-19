@@ -37,14 +37,9 @@ __copyright__ = "Copyright (c) 2008-2017 Hive Solutions Lda."
 __license__ = "Apache License, Version 2.0"
 """ The license for the module """
 
-class OrderAPI(object):
+class AccountAPI(object):
 
-    def all_orders(self, symbol = "LTCBTC"):
-        url = self.neo_url + "allOrders"
-        contents = self.get(url, sign = True, symbol = symbol)
-        return contents
-
-    def open_orders(self):
-        url = self.neo_url + "openOrders"
+    def self_account(self):
+        url = self.neo_url + "account"
         contents = self.get(url, sign = True)
         return contents
