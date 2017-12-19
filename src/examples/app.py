@@ -60,6 +60,24 @@ class BinanceApp(appier.WebApp):
         ticker = api.all_ticker()
         return ticker
 
+    @appier.route("/ping", "GET")
+    def ping(self):
+        api = self.get_api()
+        result = api.ping()
+        return result
+
+    @appier.route("/time", "GET")
+    def time(self):
+        api = self.get_api()
+        result = api.time()
+        return result
+
+    @appier.route("/orders/open", "GET")
+    def open_orders(self):
+        api = self.get_api()
+        orders = api.open_orders()
+        return orders
+
     def get_api(self):
         api = base.get_api()
         return api
