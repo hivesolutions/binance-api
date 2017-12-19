@@ -40,6 +40,6 @@ __license__ = "Apache License, Version 2.0"
 class OrderAPI(object):
 
     def open_orders(self):
-        url = self.base_url + "openOrders"
+        url = self.neo_url + "openOrders"
         contents = self.get(url)
         return contents

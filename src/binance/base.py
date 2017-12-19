@@ -79,3 +79,13 @@ class API(
     ):
         auth = kwargs.pop("auth", True)
         if auth and self.key: headers["X-Secret-Key"] = self.key
+
+    def ping(self):
+        url = self.base_url + "ping"
+        contents = self.get(url, auth = False)
+        return contents
+
+    def time(self):
+        url = self.base_url + "time"
+        contents = self.get(url, auth = False)
+        return contents
