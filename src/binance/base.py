@@ -37,8 +37,13 @@ __copyright__ = "Copyright (c) 2008-2017 Hive Solutions Lda."
 __license__ = "Apache License, Version 2.0"
 """ The license for the module """
 
+import hmac
+import time
+import hashlib
+
 import appier
 
+from . import order
 from . import ticker
 
 BASE_URL = "https://api.binance.com/api/v1/"
@@ -51,6 +56,7 @@ base URL value is provided to the constructor """
 
 class API(
     appier.API,
+    order.OrderAPI,
     ticker.TickerAPI
 ):
 
@@ -78,7 +84,15 @@ class API(
         kwargs = None
     ):
         auth = kwargs.pop("auth", True)
-        if auth and self.key: headers["X-Secret-Key"] = self.key
+        sign = kwargs.pop("sign", False)
+        if auth and self.api_key: headers["X-MBX-APIKEY"] = self.api_key
+        if sign:
+            params["timestamp"] = int(time.time() * 1000)
+            values = appier.http._urlencode(params)
+            secret = appier.legacy.bytes(self.secret, force = True)
+            values = appier.legacy.bytes(values, force = True)
+            digest = hmac.new(secret, values, hashlib.sha256)
+            params["signature"] = digest.hexdigest()
 
     def ping(self):
         url = self.base_url + "ping"
