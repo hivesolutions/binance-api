@@ -41,5 +41,5 @@ class OrderAPI(object):
 
     def open_orders(self):
         url = self.neo_url + "openOrders"
-        contents = self.get(url)
+        contents = self.get(url, sign = True)
         return contents
