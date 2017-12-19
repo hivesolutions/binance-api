@@ -52,7 +52,7 @@ class BinanceApp(appier.WebApp):
 
     @appier.route("/", "GET")
     def index(self):
-        return self.stacks()
+        return self.ticker()
 
     @appier.route("/ticker", "GET")
     def ticker(self):
