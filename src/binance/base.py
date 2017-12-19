@@ -43,7 +43,11 @@ from . import ticker
 
 BASE_URL = "https://api.binance.com/api/v1/"
 """ The default base URL to be used when no other
-base url value is provided to the constructor """
+base URL value is provided to the constructor """
+
+NEO_URL = "https://api.binance.com/api/v3/"
+""" The default (base) newest URL to be used when no other
+base URL value is provided to the constructor """
 
 class API(
     appier.API,
@@ -53,9 +57,11 @@ class API(
     def __init__(self, *args, **kwargs):
         appier.API.__init__(self, *args, **kwargs)
         self.base_url = appier.conf("BINANCE_BASE_URL", BASE_URL)
+        self.neo_url = appier.conf("BINANCE_NEO_URL", NEO_URL)
         self.api_key = appier.conf("BINANCE_API_KEY", None)
         self.secret = appier.conf("BINANCE_SECRET", None)
         self.base_url = kwargs.get("base_url", self.base_url)
+        self.neo_url = kwargs.get("neo_url", self.neo_url)
         self.api_key = kwargs.get("api_key", self.api_key)
         self.secret = kwargs.get("secret", self.secret)
 
@@ -71,4 +77,5 @@ class API(
         mime = None,
         kwargs = None
     ):
-        pass
+        auth = kwargs.pop("auth", True)
+        if auth and self.key: headers["X-Secret-Key"] = self.key

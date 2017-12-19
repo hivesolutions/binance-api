@@ -37,9 +37,9 @@ __copyright__ = "Copyright (c) 2008-2017 Hive Solutions Lda."
 __license__ = "Apache License, Version 2.0"
 """ The license for the module """
 
-class TickerAPI(object):
+class OrderAPI(object):
 
-    def all_ticker(self):
-        url = self.base_url + "ticker/allPrices"
-        contents = self.get(url, auth = False)
+    def open_orders(self):
+        url = self.base_url + "openOrders"
+        contents = self.get(url)
         return contents
