@@ -39,7 +39,7 @@ __license__ = "Apache License, Version 2.0"
 
 class TradeAPI(object):
 
-    def list_trades(self, symbol = "BTC"):
+    def list_trades(self, symbol = "LTCBTC"):
         url = self.neo_url + "myTrades"
-        contents = self.get(url, auth = False, symbol = symbol)
+        contents = self.get(url, sign = True, symbol = symbol)
         return contents
