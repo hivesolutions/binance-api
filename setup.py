@@ -42,7 +42,7 @@ import setuptools
 
 setuptools.setup(
     name = "binance_api",
-    version = "0.1.1",
+    version = "0.1.2",
     author = "Hive Solutions Lda.",
     author_email = "development@hive.pt",
     description = "Binance API Client",
