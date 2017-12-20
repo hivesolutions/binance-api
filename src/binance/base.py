@@ -44,6 +44,7 @@ import hashlib
 import appier
 
 from . import order
+from . import trade
 from . import ticker
 from . import account
 
@@ -58,6 +59,7 @@ base URL value is provided to the constructor """
 class API(
     appier.API,
     order.OrderAPI,
+    trade.TradeAPI,
     ticker.TickerAPI,
     account.AccountAPI
 ):

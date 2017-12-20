@@ -19,6 +19,9 @@
 # You should have received a copy of the Apache License along with
 # Hive Binance API. If not, see <http://www.apache.org/licenses/>.
 
+__author__ = "João Magalhães <joamag@hive.pt>"
+""" The author(s) of the module """
+
 __version__ = "1.0.0"
 """ The version of the module """
 
@@ -34,14 +37,9 @@ __copyright__ = "Copyright (c) 2008-2017 Hive Solutions Lda."
 __license__ = "Apache License, Version 2.0"
 """ The license for the module """
 
-from . import account
-from . import base
-from . import order
-from . import ticker
-from . import trade
+class TradeAPI(object):
 
-from .account import AccountAPI
-from .base import API
-from .order import OrderAPI
-from .ticker import TickerAPI
-from .trade import TradeAPI
+    def list_trades(self, symbol = "BTC"):
+        url = self.neo_url + "myTrades"
+        contents = self.get(url, auth = False, symbol = symbol)
+        return contents
