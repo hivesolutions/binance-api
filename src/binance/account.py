@@ -59,7 +59,7 @@ class AccountAPI(object):
                 asset = asset,
                 address = address,
                 amount = amount,
-                address_tag = address_tag,
+                addressTag = address_tag,
                 name = address_name
             ),
             data = b"",
