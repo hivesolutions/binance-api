@@ -96,7 +96,7 @@ class API(
         auth = kwargs.pop("auth", True)
         sign = kwargs.pop("sign", False)
         if auth and self.api_key: headers["X-MBX-APIKEY"] = self.api_key
-        if sign:
+        if sign and self.secret:
             params["timestamp"] = int(time.time() * 1000)
             values = appier.http._urlencode(params)
             secret = appier.legacy.bytes(self.secret, force = True)
