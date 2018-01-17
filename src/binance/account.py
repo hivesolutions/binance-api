@@ -44,7 +44,7 @@ class AccountAPI(object):
         contents = self.get(url, sign = True)
         return contents
 
-    def withdraw(
+    def withdraw_account(
         self,
         asset,
         address,
