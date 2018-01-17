@@ -43,3 +43,23 @@ class AccountAPI(object):
         url = self.neo_url + "account"
         contents = self.get(url, sign = True)
         return contents
+
+    def withdraw(
+        self,
+        asset,
+        address,
+        amount,
+        address_tag = None,
+        address_name = None
+    ):
+        url = self.neo_url + "withdraw.html"
+        contents = self.post(
+            url,
+            asset = asset,
+            address = address,
+            amount = amount,
+            address_tag = address_tag,
+            address_name = address_name,
+            sign = True
+        )
+        return contents
