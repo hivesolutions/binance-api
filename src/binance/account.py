@@ -52,14 +52,18 @@ class AccountAPI(object):
         address_tag = None,
         address_name = None
     ):
-        url = self.neo_url + "withdraw.html"
+        url = self.wapi_url + "withdraw.html"
         contents = self.post(
             url,
-            asset = asset,
-            address = address,
-            amount = amount,
-            address_tag = address_tag,
-            address_name = address_name,
+            params = dict(
+                asset = asset,
+                address = address,
+                amount = amount,
+                address_tag = address_tag,
+                name = address_name
+            ),
+            data = b"",
+            mime = "application/x-www-form-urlencoded",
             sign = True
         )
         return contents

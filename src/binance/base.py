@@ -56,6 +56,10 @@ NEO_URL = "https://api.binance.com/api/v3/"
 """ The default (base) newest URL to be used when no other
 base URL value is provided to the constructor """
 
+WAPI_URL = "https://api.binance.com/wapi/v3/"
+""" The default (base) wapi URL to be used when no other
+base URL value is provided to the constructor """
+
 class API(
     appier.API,
     order.OrderAPI,
@@ -68,10 +72,12 @@ class API(
         appier.API.__init__(self, *args, **kwargs)
         self.base_url = appier.conf("BINANCE_BASE_URL", BASE_URL)
         self.neo_url = appier.conf("BINANCE_NEO_URL", NEO_URL)
+        self.wapi_url = appier.conf("BINANCE_WAPI_URL", WAPI_URL)
         self.api_key = appier.conf("BINANCE_API_KEY", None)
         self.secret = appier.conf("BINANCE_SECRET", None)
         self.base_url = kwargs.get("base_url", self.base_url)
         self.neo_url = kwargs.get("neo_url", self.neo_url)
+        self.wapi_url = kwargs.get("wapi_url", self.wapi_url)
         self.api_key = kwargs.get("api_key", self.api_key)
         self.secret = kwargs.get("secret", self.secret)
 
