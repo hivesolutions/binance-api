@@ -4,10 +4,12 @@ Simple Python API client for [Binance](https://www.binance.com).
 
 ## Configuration
 
-* `BINANCE_BASE_URL` (`str`) - The base URL for the Binance API requests (defaults to `https://api.binance.com/api/v1/`)
-* `BINANCE_NEO_URL` (`str`) - The base URL for the Binance new API requests (defaults to `https://api.binance.com/api/v3/`)
-* `BINANCE_API_KEY` (`str`) - The API key to be used to authenticate API requests (defaults to `None`)
-* `BINANCE_SECRET_KEY` (`str`) - The secret key value to be used to sign API requests (defaults to `None`)
+| Name | Type | Description |
+| ----- | ----- | ----- |
+| **BINANCE_BASE_URL** | `str` | The base URL for the Binance API requests (defaults to `https://api.binance.com/api/v1/`). |
+| **BINANCE_NEO_URL** | `str` | The base URL for the Binance new API requests (defaults to `https://api.binance.com/api/v3/`). |
+| **BINANCE_API_KEY** | `str` | The API key to be used to authenticate API requests (defaults to `None`). |
+| **BINANCE_SECRET_KEY** | `str` | The secret key value to be used to sign API requests (defaults to `None`). |
 
 ## License
 
