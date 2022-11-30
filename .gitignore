@@ -6,4 +6,4 @@ session.shelve*
 
 /dist
 /build
-/src/binance_api.egg-info
+/src/binance-api.egg-info
