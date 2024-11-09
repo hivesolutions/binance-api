@@ -30,6 +30,7 @@ __license__ = "Apache License, Version 2.0"
 
 import unittest
 
+
 class BaseTest(unittest.TestCase):
 
     def test_basic(self):
