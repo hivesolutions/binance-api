@@ -42,6 +42,7 @@ setuptools.setup(
     url="http://binance-api.hive.pt",
     zip_safe=False,
     packages=["binance"],
+    test_suite="binance.test",
     package_dir={"": os.path.normpath("src")},
     install_requires=["appier"],
     classifiers=[
