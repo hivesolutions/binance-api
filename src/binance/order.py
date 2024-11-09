@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 # Hive Binance API
-# Copyright (c) 2008-2020 Hive Solutions Lda.
+# Copyright (c) 2008-2024 Hive Solutions Lda.
 #
 # This file is part of Hive Binance API.
 #
@@ -22,29 +22,21 @@
 __author__ = "João Magalhães <joamag@hive.pt>"
 """ The author(s) of the module """
 
-__version__ = "1.0.0"
-""" The version of the module """
-
-__revision__ = "$LastChangedRevision$"
-""" The revision number of the module """
-
-__date__ = "$LastChangedDate$"
-""" The last change date of the module """
-
-__copyright__ = "Copyright (c) 2008-2020 Hive Solutions Lda."
+__copyright__ = "Copyright (c) 2008-2024 Hive Solutions Lda."
 """ The copyright for the module """
 
 __license__ = "Apache License, Version 2.0"
 """ The license for the module """
 
+
 class OrderAPI(object):
 
-    def all_orders(self, symbol = "LTCBTC"):
+    def all_orders(self, symbol="LTCBTC"):
         url = self.neo_url + "allOrders"
-        contents = self.get(url, sign = True, symbol = symbol)
+        contents = self.get(url, sign=True, symbol=symbol)
         return contents
 
     def open_orders(self):
         url = self.neo_url + "openOrders"
-        contents = self.get(url, sign = True)
+        contents = self.get(url, sign=True)
         return contents

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 # Hive Binance API
-# Copyright (c) 2008-2020 Hive Solutions Lda.
+# Copyright (c) 2008-2024 Hive Solutions Lda.
 #
 # This file is part of Hive Binance API.
 #
@@ -22,16 +22,7 @@
 __author__ = "João Magalhães <joamag@hive.pt>"
 """ The author(s) of the module """
 
-__version__ = "1.0.0"
-""" The version of the module """
-
-__revision__ = "$LastChangedRevision$"
-""" The revision number of the module """
-
-__date__ = "$LastChangedDate$"
-""" The last change date of the module """
-
-__copyright__ = "Copyright (c) 2008-2020 Hive Solutions Lda."
+__copyright__ = "Copyright (c) 2008-2024 Hive Solutions Lda."
 """ The copyright for the module """
 
 __license__ = "Apache License, Version 2.0"
@@ -60,12 +51,9 @@ WAPI_URL = "https://api.binance.com/wapi/v3/"
 """ The default (base) wapi URL to be used when no other
 base URL value is provided to the constructor """
 
+
 class API(
-    appier.API,
-    order.OrderAPI,
-    trade.TradeAPI,
-    ticker.TickerAPI,
-    account.AccountAPI
+    appier.API, order.OrderAPI, trade.TradeAPI, ticker.TickerAPI, account.AccountAPI
 ):
 
     def __init__(self, *args, **kwargs):
@@ -85,31 +73,32 @@ class API(
         self,
         method,
         url,
-        data = None,
-        data_j = None,
-        data_m = None,
-        headers = None,
-        params = None,
-        mime = None,
-        kwargs = None
+        data=None,
+        data_j=None,
+        data_m=None,
+        headers=None,
+        params=None,
+        mime=None,
+        kwargs=None,
     ):
         auth = kwargs.pop("auth", True)
         sign = kwargs.pop("sign", False)
-        if auth and self.api_key: headers["X-MBX-APIKEY"] = self.api_key
+        if auth and self.api_key:
+            headers["X-MBX-APIKEY"] = self.api_key
         if sign and self.secret:
             params["timestamp"] = int(time.time() * 1000)
             values = appier.http._urlencode(params)
-            secret = appier.legacy.bytes(self.secret, force = True)
-            values = appier.legacy.bytes(values, force = True)
+            secret = appier.legacy.bytes(self.secret, force=True)
+            values = appier.legacy.bytes(values, force=True)
             digest = hmac.new(secret, values, hashlib.sha256)
             params["signature"] = digest.hexdigest()
 
     def ping(self):
         url = self.base_url + "ping"
-        contents = self.get(url, auth = False)
+        contents = self.get(url, auth=False)
         return contents
 
     def time(self):
         url = self.base_url + "time"
-        contents = self.get(url, auth = False)
+        contents = self.get(url, auth=False)
         return contents

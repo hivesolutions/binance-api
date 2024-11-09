@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 # Hive Binance API
-# Copyright (c) 2008-2020 Hive Solutions Lda.
+# Copyright (c) 2008-2024 Hive Solutions Lda.
 #
 # This file is part of Hive Binance API.
 #
@@ -22,48 +22,35 @@
 __author__ = "João Magalhães <joamag@hive.pt>"
 """ The author(s) of the module """
 
-__version__ = "1.0.0"
-""" The version of the module """
-
-__revision__ = "$LastChangedRevision$"
-""" The revision number of the module """
-
-__date__ = "$LastChangedDate$"
-""" The last change date of the module """
-
-__copyright__ = "Copyright (c) 2008-2020 Hive Solutions Lda."
+__copyright__ = "Copyright (c) 2008-2024 Hive Solutions Lda."
 """ The copyright for the module """
 
 __license__ = "Apache License, Version 2.0"
 """ The license for the module """
 
+
 class AccountAPI(object):
 
     def self_account(self):
         url = self.neo_url + "account"
-        contents = self.get(url, sign = True)
+        contents = self.get(url, sign=True)
         return contents
 
     def withdraw_account(
-        self,
-        asset,
-        address,
-        amount,
-        address_tag = None,
-        address_name = None
+        self, asset, address, amount, address_tag=None, address_name=None
     ):
         url = self.wapi_url + "withdraw.html"
         contents = self.post(
             url,
-            params = dict(
-                asset = asset,
-                address = address,
-                amount = amount,
-                addressTag = address_tag,
-                name = address_name
+            params=dict(
+                asset=asset,
+                address=address,
+                amount=amount,
+                addressTag=address_tag,
+                name=address_name,
             ),
-            data = b"",
-            mime = "application/x-www-form-urlencoded",
-            sign = True
+            data=b"",
+            mime="application/x-www-form-urlencoded",
+            sign=True,
         )
         return contents
